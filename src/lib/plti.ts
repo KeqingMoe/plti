@@ -26,6 +26,8 @@ export function createEmptyProgress(): Array<AnswerIndex | null> {
   return Array.from({ length: TOTAL_QUESTIONS }, () => null);
 }
 
+const BASE64_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+
 export function encodeAnswerString(answers: AnswerIndex[]): string {
   if (answers.length !== TOTAL_QUESTIONS) {
     throw new Error(`Expected ${TOTAL_QUESTIONS} answers, received ${answers.length}.`);
@@ -35,16 +37,42 @@ export function encodeAnswerString(answers: AnswerIndex[]): string {
     throw new Error('Answer string can only encode complete answers.');
   }
 
-  return answers.join('');
+  let value = 0n;
+  for (const a of answers) {
+    value = value * 6n + BigInt(a);
+  }
+
+  if (value === 0n) return BASE64_CHARS[0];
+
+  let result = '';
+  while (value > 0n) {
+    const digit = Number(value % 64n);
+    result = BASE64_CHARS[digit] + result;
+    value /= 64n;
+  }
+
+  return result;
 }
 
 export function decodeAnswerString(serialized: string | null | undefined): AnswerIndex[] | null {
-  if (!serialized || serialized.length !== TOTAL_QUESTIONS) {
-    return null;
+  if (!serialized) return null;
+
+  let value = 0n;
+  for (const char of serialized) {
+    const digit = BASE64_CHARS.indexOf(char);
+    if (digit === -1) return null;
+    value = value * 64n + BigInt(digit);
   }
 
-  const decoded = Array.from(serialized, (char) => Number(char));
-  return decoded.every(isAnswerIndex) ? decoded : null;
+  const answers: number[] = [];
+  for (let i = 0; i < TOTAL_QUESTIONS; i++) {
+    answers.push(Number(value % 6n));
+    value /= 6n;
+  }
+
+  answers.reverse();
+
+  return answers.every(isAnswerIndex) ? answers : null;
 }
 
 export function serializeProgress(answers: Array<AnswerIndex | null>): string {
