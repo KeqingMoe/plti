@@ -4,7 +4,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'python',
     name: 'Python',
-    personaTitle: '速写派脚本师',
+    personaTitle: '脚本小子',
     group: 'industrial',
     vector: {
       'type-discipline': -2,
@@ -24,7 +24,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'javascript',
     name: 'JavaScript',
-    personaTitle: '事件流游侠',
+    personaTitle: '相等性抽象派',
     group: 'industrial',
     vector: {
       'type-discipline': -2,
@@ -44,8 +44,8 @@ export const languages: LanguageProfile[] = [
   {
     id: 'typescript',
     name: 'TypeScript',
-    personaTitle: '契约补缀师',
-    group: 'industrial',
+    personaTitle: '类型体操运动员',
+    group: 'exploratory',
     vector: {
       'type-discipline': 1,
       abstraction: 0,
@@ -64,7 +64,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'go',
     name: 'Go',
-    personaTitle: '管道工程师',
+    personaTitle: '加法跳级生',
     group: 'industrial',
     vector: {
       'type-discipline': 1,
@@ -84,7 +84,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'java',
     name: 'Java',
-    personaTitle: '平台建筑师',
+    personaTitle: '抽象工厂单例代理建造者',
     group: 'industrial',
     vector: {
       'type-discipline': 2,
@@ -104,7 +104,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'csharp',
     name: 'C#',
-    personaTitle: '工具链统筹者',
+    personaTitle: '语法糖批发商',
     group: 'industrial',
     vector: {
       'type-discipline': 2,
@@ -124,7 +124,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'kotlin',
     name: 'Kotlin',
-    personaTitle: '安全派实用主义者',
+    personaTitle: '空安全洁癖症患者',
     group: 'industrial',
     vector: {
       'type-discipline': 2,
@@ -142,29 +142,29 @@ export const languages: LanguageProfile[] = [
     idealTeam: '希望在成熟平台内逐步提升代码质量与表达力的团队。'
   },
   {
-    id: 'swift',
-    name: 'Swift',
-    personaTitle: '体验锻造者',
-    group: 'industrial',
+    id: 'koka',
+    name: 'Koka',
+    personaTitle: '效应会计师',
+    group: 'exploratory',
     vector: {
       'type-discipline': 2,
-      abstraction: 1,
-      effects: -1,
+      abstraction: 2,
+      effects: 2,
       control: 0,
       engineering: 1,
-      exploration: -1
+      exploration: 2
     },
-    summary: '你重视类型和可读性，但同样在意 API 的触感、产品体验和语言设计的审美。',
-    whyFit: ['你喜欢把安全和可用性一起考虑。', '你愿意在现代语法与工业生态之间找平衡。', '你对“好语言也应该顺手”这件事格外敏感。'],
-    caveat: '如果环境约束太强，你会对语言理想与平台现实的落差格外不耐烦。',
-    catchphrase: '写给编译器看，也写给明天的自己看。',
-    blindspot: '可能对体验细节投入太多，以至于忽略跨平台现实。',
-    idealTeam: '产品体验驱动、同时愿意认真做 API 设计的团队。'
+    summary: '你不仅关心类型安全，还想把副作用本身变成可组合、可推理的建模对象。',
+    whyFit: ['你对效果系统有天然好感。', '你想要把副作用从实现细节提升为语义表达。', '你欣赏把控制流和计算分离的干净思路。'],
+    caveat: '当团队更关心直接交付而非语义精致时，你的语言偏好会显得太遥远。',
+    catchphrase: '副作用不应该藏在实现里，应该写在类型上。',
+    blindspot: '可能高估团队对效果系统抽象的接受度。',
+    idealTeam: '关注程序语义、愿意为可组合性投资的研究型或工具链团队。'
   },
   {
     id: 'c',
     name: 'C',
-    personaTitle: '系统骨匠',
+    personaTitle: '指针仙人',
     group: 'industrial',
     vector: {
       'type-discipline': 1,
@@ -184,7 +184,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'cpp',
     name: 'C++',
-    personaTitle: '零成本炼金师',
+    personaTitle: '语言律师',
     group: 'industrial',
     vector: {
       'type-discipline': 1,
@@ -204,8 +204,8 @@ export const languages: LanguageProfile[] = [
   {
     id: 'rust',
     name: 'Rust',
-    personaTitle: '所有权守门人',
-    group: 'industrial',
+    personaTitle: '借用检查官',
+    group: 'exploratory',
     vector: {
       'type-discipline': 2,
       abstraction: 1,
@@ -224,8 +224,8 @@ export const languages: LanguageProfile[] = [
   {
     id: 'zig',
     name: 'Zig',
-    personaTitle: '裸金属修整师',
-    group: 'exploratory',
+    personaTitle: '编译期 Girard',
+    group: 'industrial',
     vector: {
       'type-discipline': -1,
       abstraction: -2,
@@ -244,7 +244,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'elixir',
     name: 'Elixir',
-    personaTitle: '容错编排师',
+    personaTitle: '超级马里奥',
     group: 'exploratory',
     vector: {
       'type-discipline': -1,
@@ -264,7 +264,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'scala',
     name: 'Scala',
-    personaTitle: '混范式调和者',
+    personaTitle: '范式缝合怪',
     group: 'exploratory',
     vector: {
       'type-discipline': 2,
@@ -284,7 +284,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'ocaml',
     name: 'OCaml',
-    personaTitle: '类型工坊师',
+    personaTitle: '编译器学院派',
     group: 'exploratory',
     vector: {
       'type-discipline': 2,
@@ -304,7 +304,7 @@ export const languages: LanguageProfile[] = [
   {
     id: 'haskell',
     name: 'Haskell',
-    personaTitle: '纯度理论家',
+    personaTitle: '范畴论学家',
     group: 'exploratory',
     vector: {
       'type-discipline': 2,
