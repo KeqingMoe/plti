@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { methodologySections, siteCopy } from '../data/copy.ts';
+import { dimensions } from '../data/dimensions.ts';
+import { languages } from '../data/languages.ts';
+import { ANSWER_VALUES } from '../lib/plti.ts';
+
+const base = import.meta.env.BASE_URL;
+const industrialLanguages = languages.filter((language) => language.group === 'industrial');
+const exploratoryLanguages = languages.filter((language) => language.group === 'exploratory');
+---
+
+<BaseLayout title="方法论 | PLTI" description={siteCopy.methodologyIntro} path={`${base}methodology`}>
+  <section class="method-shell">
+    <div class="section-heading">
+      <p class="section-kicker">Methodology</p>
+      <h1 class="page-title">这套测试到底依据什么在算。</h1>
+      <p class="page-lede">{siteCopy.methodologyIntro}</p>
+    </div>
+
+    <div class="method-grid">
+      <article class="method-card">
+        <h3>灵感来源</h3>
+        <div class="method-stack">
+          {methodologySections.source.map((item) => <p>{item}</p>)}
+        </div>
+      </article>
+
+      <article class="method-card">
+        <h3>计分方式</h3>
+        <div class="method-stack">
+          {methodologySections.scoring.map((item) => <p>{item}</p>)}
+        </div>
+      </article>
+
+      <article class="method-card">
+        <h3>语言池原则</h3>
+        <div class="method-stack">
+          {methodologySections.selection.map((item) => <p>{item}</p>)}
+        </div>
+      </article>
+
+      <article class="method-card">
+        <h3>免责声明</h3>
+        <div class="method-stack">
+          {methodologySections.caveat.map((item) => <p>{item}</p>)}
+        </div>
+      </article>
+    </div>
+
+    <div class="two-column">
+      <article class="method-card">
+        <h3>答案与数值映射</h3>
+        <p>PLTI 使用 6 级强制倾向，不提供中立项。用户必须决定自己更靠左还是更靠右。</p>
+        <div class="pill-row" style="margin-top: 16px;">
+          {siteCopy.answerLabels.map((label, index) => (
+            <span class="pill">{label} = {ANSWER_VALUES[index] > 0 ? '+' : ''}{ANSWER_VALUES[index]}</span>
+          ))}
+        </div>
+      </article>
+
+      <article class="method-card">
+        <h3>结果计算公式</h3>
+        <p>每个维度 10 题，题目分值先乘以正反向极性，再汇总成原始分。之后会标准化成展示分数，并和语言向量做距离匹配。</p>
+        <div class="formula">
+          raw = Σ(answer × polarity)
+          <br />
+          display = round(raw / 30 × 100)
+          <br />
+          fit = round((1 - distance / 24) × 100)
+        </div>
+      </article>
+    </div>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2 class="section-title">六个维度分别在看什么</h2>
+      </div>
+
+      <div class="dimension-grid">
+        {dimensions.map((dimension) => (
+          <article class="method-card">
+            <p class="overline">{dimension.leftTitle} / {dimension.rightTitle}</p>
+            <h3>{dimension.name}</h3>
+            <p>{dimension.summary}</p>
+            <p class="mini-note">{dimension.methodNote}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2 class="section-title">16 门语言如何分布</h2>
+      </div>
+
+      <div class="language-grid">
+        <article class="method-card">
+          <h3>主流 / 工业</h3>
+          <p>优先保证结果落点对普通开发者来说足够熟悉、足够像现实工作中的技术判断。</p>
+          <div class="language-cloud" style="margin-top: 16px;">
+            {industrialLanguages.map((language) => (
+              <span class="tag">{language.personaTitle} · {language.name}</span>
+            ))}
+          </div>
+        </article>
+
+        <article class="method-card">
+          <h3>PL / 探索</h3>
+          <p>保留少量探索型语言，是为了让范式和语义模型的差异真的能在结果里体现出来。</p>
+          <div class="language-cloud" style="margin-top: 16px;">
+            {exploratoryLanguages.map((language) => (
+              <span class="tag">{language.personaTitle} · {language.name}</span>
+            ))}
+          </div>
+        </article>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
+

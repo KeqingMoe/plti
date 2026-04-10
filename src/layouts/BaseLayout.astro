@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+}
+
+const { title, description, path = '/' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const year = new Date().getFullYear();
+
+const navigation = [
+  { href: `${base}`, label: '首页' },
+  { href: `${base}quiz`, label: '开始测试' },
+  { href: `${base}methodology`, label: '方法论' }
+];
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" href={`${base}favicon.ico`} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="site-backdrop" aria-hidden="true">
+      <div class="site-backdrop__orb site-backdrop__orb--one"></div>
+      <div class="site-backdrop__orb site-backdrop__orb--two"></div>
+      <div class="site-backdrop__grid"></div>
+    </div>
+
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href={base}>
+          <span class="brand__mark">PLTI</span>
+          <span class="brand__text">
+            <strong>Programming Language Type Indicator</strong>
+            <small>把语言偏好做成一份像样的静态测试</small>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="主导航">
+          {navigation.map((item) => (
+            <a class:list={["site-nav__link", path === item.href && 'is-active']} href={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </header>
+
+      <main class="main-shell">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p>PLTI 是一份受编程语言理论与现实工程偏好启发的趣味量表，不是经过心理测量学验证的正式测试。</p>
+        <p>{year} · 纯静态 Astro 站点，可直接部署到任意静态托管平台。</p>
+      </footer>
+    </div>
+  </body>
+</html>
+
