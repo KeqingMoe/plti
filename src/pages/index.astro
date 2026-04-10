@@ -1,13 +1,17 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { siteCopy } from '../data/copy.ts';
-import { dimensions } from '../data/dimensions.ts';
-import { languages } from '../data/languages.ts';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteCopy } from "../data/copy.ts";
+import { dimensions } from "../data/dimensions.ts";
+import { languages } from "../data/languages.ts";
 
 const base = import.meta.env.BASE_URL;
-const title = 'PLTI | Programming Language Type Indicator';
-const industrialLanguages = languages.filter((language) => language.group === 'industrial');
-const exploratoryLanguages = languages.filter((language) => language.group === 'exploratory');
+const title = "PLTI | 编程语言人格测试";
+const industrialLanguages = languages.filter(
+  (language) => language.group === "industrial",
+);
+const exploratoryLanguages = languages.filter(
+  (language) => language.group === "exploratory",
+);
 ---
 
 <BaseLayout title={title} description={siteCopy.heroBlurb} path={base}>
@@ -16,23 +20,7 @@ const exploratoryLanguages = languages.filter((language) => language.group === '
     <h1 class="hero__title">{siteCopy.heroTitle}</h1>
     <p class="hero__lede">{siteCopy.heroBlurb}</p>
 
-    <div class="hero__grid">
-      <div class="hero-surface">
-        <div class="button-row">
-          <a class="button" href={`${base}quiz`}>开始测试</a>
-          <a class="button-secondary" href={`${base}methodology`}>先看方法论</a>
-        </div>
-
-        <div class="pill-row" style="margin-top: 16px;">
-          <span class="pill">固定 60 题</span>
-          <span class="pill">6 级强制倾向</span>
-          <span class="pill">16 门语言画像</span>
-          <span class="pill">纯静态部署</span>
-        </div>
-
-        <p class="mini-note">{siteCopy.disclaimer}</p>
-      </div>
-
+    <div class="hero__content">
       <div class="stat-grid">
         <article class="metric-card">
           <small>答题时间</small>
@@ -53,85 +41,76 @@ const exploratoryLanguages = languages.filter((language) => language.group === '
         </article>
       </div>
     </div>
-  </section>
 
-  <section class="section">
-    <div class="section-heading">
-      <p class="section-kicker">How It Works</p>
-      <h2 class="section-title">这不是四字母人格，而是一份语言设计偏好画像。</h2>
-      <p class="section-lede">PLTI 先根据你的 60 道选择题算出 6 个维度分数，再把这组向量和 16 门语言的固定画像做距离匹配。结果会告诉你，你更像哪种语言气质，以及为什么。</p>
-    </div>
+    <a class="start-test" href={`${base}quiz`}>&gt; 开始测试 &lt;</a>
 
-    <div class="two-column">
-      <article class="soft-card">
-        <h3>它在测什么</h3>
-        <ul class="bullet-list">
-          <li>你更信任运行时弹性，还是更信任编译前的约束感。</li>
-          <li>你对高阶抽象、纯度、副作用和语言设计美学的耐受度。</li>
-          <li>你在真实团队里如何权衡交付速度、维护成本与底层控制权。</li>
-        </ul>
-      </article>
+    <section class="section">
+      <div class="section-heading">
+        <p class="section-kicker">工作原理</p>
+        <h2 class="section-title">简单直接的语言倾向测试</h2>
+        <p class="section-lede">
+          每题为两种倾向的对立选择，没有中立选项。通过 60
+          道题评估你在六个维度上的倾向，匹配最接近的编程语言画像。
+        </p>
+      </div>
+    </section>
 
-      <article class="soft-card">
-        <h3>它不在测什么</h3>
-        <ul class="bullet-list">
-          <li>它不是心理学意义上的人格测验，也不会告诉你“你注定该用哪门语言”。</li>
-          <li>它不把小众语言自动神化，也不把主流语言简单视作“缺乏个性”。</li>
-          <li>它更像一面带理论滤镜的镜子，帮助你重新看待自己的工程直觉。</li>
-        </ul>
-      </article>
-    </div>
-  </section>
+    <section class="section">
+      <div class="section-heading">
+        <p class="section-kicker">维度说明</p>
+        <h2 class="section-title">六条轴线，决定你的语言倾向。</h2>
+      </div>
 
-  <section class="section">
-    <div class="section-heading">
-      <p class="section-kicker">Dimensions</p>
-      <h2 class="section-title">六条轴线，决定你的语言倾向。</h2>
-    </div>
+      <div class="dimension-grid">
+        {
+          dimensions.map((dimension) => (
+            <article class="soft-card dimension-card">
+              <h3>{dimension.name}</h3>
+              <p>{dimension.summary}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
 
-    <div class="dimension-grid">
-      {dimensions.map((dimension) => (
-        <article class="soft-card dimension-card">
-          <p class="dimension-card__axis">{dimension.leftTitle} / {dimension.rightTitle}</p>
-          <h3>{dimension.name}</h3>
-          <p>{dimension.summary}</p>
-          <div class="tag-row" style="margin-top: 14px;">
-            <span class="tag">左侧：{dimension.leftDescription}</span>
-            <span class="tag">右侧：{dimension.rightDescription}</span>
+    <section class="section">
+      <div class="section-heading">
+        <p class="section-kicker">Language Pool</p>
+        <h2 class="section-title">语言选择原则</h2>
+        <p class="section-lede">
+          语言池覆盖了脚本语言、平台语言、系统语言和探索型语言，兼顾主流使用和范式多样性。
+        </p>
+      </div>
+
+      <div class="language-grid">
+        <article class="soft-card language-card">
+          <h3>主流 / 工业结果池</h3>
+          <p>
+            这些结果更容易和大多数开发者的真实经验对上号，也让测试结果不会离开现实世界太远。
+          </p>
+          <div class="language-cloud" style="margin-top: 16px;">
+            {
+              industrialLanguages.map((language) => (
+                <span class="tag">{language.name}</span>
+              ))
+            }
           </div>
         </article>
-      ))}
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="section-heading">
-      <p class="section-kicker">Language Pool</p>
-      <h2 class="section-title">主流工业语言优先，但不忘保留一点 PL 味。</h2>
-      <p class="section-lede">语言池故意覆盖了脚本语言、平台语言、系统语言和探索型语言，既不轻慢 C++，也不把函数式语言神化成唯一高地。</p>
-    </div>
-
-    <div class="language-grid">
-      <article class="soft-card language-card">
-        <h3>主流 / 工业结果池</h3>
-        <p>这些结果更容易和大多数开发者的真实经验对上号，也让测试结果不会离开现实世界太远。</p>
-        <div class="language-cloud" style="margin-top: 16px;">
-          {industrialLanguages.map((language) => (
-            <span class="tag">{language.name}</span>
-          ))}
-        </div>
-      </article>
-
-      <article class="soft-card language-card">
-        <h3>PL / 探索结果池</h3>
-        <p>这些语言让结果空间能容纳不同范式与设计哲学，而不是无论怎么答都回到同一套工业共识。</p>
-        <div class="language-cloud" style="margin-top: 16px;">
-          {exploratoryLanguages.map((language) => (
-            <span class="tag">{language.name}</span>
-          ))}
-        </div>
-      </article>
-    </div>
+        <article class="soft-card language-card">
+          <h3>PL / 探索结果池</h3>
+          <p>
+            这些语言让结果空间能容纳不同范式与设计哲学，而不是无论怎么答都回到同一套工业共识。
+          </p>
+          <div class="language-cloud" style="margin-top: 16px;">
+            {
+              exploratoryLanguages.map((language) => (
+                <span class="tag">{language.name}</span>
+              ))
+            }
+          </div>
+        </article>
+      </div>
+    </section>
   </section>
 </BaseLayout>
-

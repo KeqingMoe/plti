@@ -23,25 +23,6 @@ const categoryLabel: Record<string, string> = {
     </div>
 
     <section class="paper-card" style="padding: 24px;">
-      <div class="quiz-topbar">
-        <div>
-          <div class="progress-meta">
-            <span class="pill">共 6 页</span>
-            <span class="pill">每页 10 题</span>
-            <span class="pill">结果页可分享</span>
-          </div>
-          <div class="progress-track" style="margin-top: 14px;">
-            <div class="progress-fill" data-progress-fill></div>
-          </div>
-        </div>
-
-        <div class="metric-card" style="min-width: 220px;">
-          <small>当前进度</small>
-          <strong data-progress-count>0 / 60</strong>
-          <p data-progress-copy>第 1 页，共 6 页。</p>
-        </div>
-      </div>
-
       <p class="restore-note" data-restore-note hidden></p>
       <p class="status-note" data-status-note hidden></p>
 
@@ -60,7 +41,6 @@ const categoryLabel: Record<string, string> = {
                         <p class="question-index">第 {overallIndex + 1} 题 · {dimension?.name}</p>
                         <h3>{question.prompt}</h3>
                       </div>
-                      <span class="tag">{categoryLabel[question.category]}</span>
                     </header>
 
                     <div class="contrast-row">

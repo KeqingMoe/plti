@@ -8,8 +8,8 @@ export const dimensions: DimensionDefinition[] = [
     leftTitle: '先写再跑',
     rightTitle: '先约束再兑现',
     summary: '你更愿意在编译前把问题圈住，还是接受运行时的弹性和自由。',
-    leftDescription: '你把类型看成建议书，快速迭代和现场调试比提前声明更重要。',
-    rightDescription: '你希望接口、数据和边界先被说清，编译器最好在你部署前替你吵完架。',
+    leftDescription: '你更倾向于边写边运行，通过迭代发现和解决问题。',
+    rightDescription: '你更倾向于先定义清晰的接口和类型，让编译器帮助发现潜在问题。',
     methodNote: '这一维同时观察你对静态约束、接口契约和长期维护成本的态度。'
   },
   {
@@ -19,8 +19,8 @@ export const dimensions: DimensionDefinition[] = [
     leftTitle: '直写流程',
     rightTitle: '提炼模式',
     summary: '你更偏向把流程摊开写明白，还是主动把重复结构抽成组合。',
-    leftDescription: '你更信任一眼能跟完的数据流和控制流，不急着提炼第二层语言。',
-    rightDescription: '你愿意为更强的组合性支付学习成本，函数、类型和模式都是压缩复杂度的工具。',
+    leftDescription: '你更喜欢直观的数据流和控制流，一眼就能理解程序执行路径。',
+    rightDescription: '你愿意投入学习成本来获得更强的组合性和抽象能力，用函数、类型等压缩复杂度。',
     methodNote: '这一维结合了 PLT 中的组合子思维，也考虑工程里对抽象层数的忍耐度。'
   },
   {
@@ -30,8 +30,8 @@ export const dimensions: DimensionDefinition[] = [
     leftTitle: '副作用直给',
     rightTitle: '可推理纯度',
     summary: '你更在意把事做成，还是更在意代码行为能被稳定推理和复用。',
-    leftDescription: '你接受状态、I/O 和隐式变化交织在一起，只要开发速度和表达成本更划算。',
-    rightDescription: '你倾向把副作用隔离起来，让函数和模块在语义上更透明、更可证明。',
+    leftDescription: '你更接受状态、I/O 和隐式变化自然交织在一起的编程方式。',
+    rightDescription: '你倾向于将副作用与纯函数逻辑分离，使代码行为更易于理解和推理。',
     methodNote: '这一维不是简单的“函数式崇拜”，而是在问你如何看待副作用、状态和推理成本。'
   },
   {

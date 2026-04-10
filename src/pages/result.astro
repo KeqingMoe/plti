@@ -17,10 +17,6 @@ const base = import.meta.env.BASE_URL;
       <p class="overline">No Result Yet</p>
       <h2>这里还没有可展示的结果。</h2>
       <p>你还没完成测试，或者分享链接里的答案串无效。先去答题，PLTI 才能认真地把你映射到某门语言上。</p>
-      <div class="empty-actions" style="margin-top: 18px;">
-        <a class="button" href={`${base}quiz`}>开始测试</a>
-        <a class="button-secondary" href={`${base}methodology`}>看方法论</a>
-      </div>
     </section>
 
     <section class="result-hero" data-result-content hidden>
@@ -53,11 +49,6 @@ const base = import.meta.env.BASE_URL;
           </div>
         </div>
 
-        <div class="result-actions">
-          <a class="button-secondary" href={`${base}quiz?restart=1`}>重新测试</a>
-          <a class="button-ghost" href={`${base}methodology`}>查看方法论</a>
-        </div>
-
         <div>
           <p class="overline">Shareable Link</p>
           <div class="share-box">
@@ -68,11 +59,10 @@ const base = import.meta.env.BASE_URL;
         </div>
       </article>
 
-      <div class="alt-grid" data-alt-grid></div>
 
       <div class="result-grid">
         <section class="meter-stack" data-meter-stack></section>
-
+<!-- 
         <section class="fact-stack">
           <article class="result-card">
             <p class="overline">Why This Match</p>
@@ -86,9 +76,12 @@ const base = import.meta.env.BASE_URL;
             <p data-caveat-copy></p>
           </article>
         </section>
-      </div>
+      </div> -->
 
-      <div class="facts-grid" data-facts-grid></div>
+      <div class="facts-and-alt">
+        <div class="alt-grid" data-alt-grid></div>
+        <div class="facts-grid" data-facts-grid></div>
+      </div>
     </section>
   </section>
 
@@ -263,6 +256,20 @@ const base = import.meta.env.BASE_URL;
           });
 
         factsGrid.innerHTML = `
+          <article class="soft-card">
+            <p class="overline">Why This Match</p>
+            <h3>为什么会是这门语言</h3>
+            <ul class="quote-list">${
+              topLanguage.whyFit.map((item) => `<li>${item}</li>`).join('')
+            }</ul>
+          </article>
+          <article class="soft-card">
+            <p class="overline">One Gentle Warning</p>
+            <h3>也许会卡住你的地方</h3>
+            <p>${
+              topLanguage.caveat
+            }</p>
+          </article>
           <article class="soft-card">
             <p class="overline">Code Catchphrase</p>
             <h3>${topLanguage.catchphrase}</h3>

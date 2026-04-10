@@ -221,16 +221,6 @@ button {
   position: relative;
 }
 
-.hero::after {
-  background: linear-gradient(90deg, transparent, rgba(197, 90, 52, 0.2), transparent);
-  content: '';
-  height: 1px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 92px;
-}
-
 .hero__eyebrow,
 .section-kicker,
 .quiz-kicker {
@@ -254,7 +244,6 @@ button {
 
 .hero__title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
-  max-width: 12ch;
 }
 
 .hero__lede,
@@ -263,7 +252,6 @@ button {
   color: var(--ink-soft);
   font-size: clamp(1rem, 2vw, 1.16rem);
   margin: 18px 0 0;
-  max-width: 62ch;
 }
 
 .hero__grid,
@@ -285,9 +273,25 @@ button {
 .language-grid,
 .alt-grid,
 .facts-grid,
+.facts-and-alt,
 .question-grid {
+  margin-top: 18px;
   display: grid;
   gap: 16px;
+}
+
+.start-test {
+  display: block;
+  font-size: 36px;
+  font-family: var(--display-font);
+  margin-top: 24px;
+  height: 48px;
+  text-align: center;
+  transition: font-size ease-in-out 0.1s;
+}
+
+.start-test:hover {
+  font-size: 40px;
 }
 
 .stat-grid {
@@ -383,7 +387,7 @@ button {
 }
 
 .score-badge {
-  background: var(--teal-soft);
+  /* background: var(--teal-soft); */
   color: var(--teal);
 }
 
@@ -440,6 +444,10 @@ button {
   transform: none;
 }
 
+section {
+  margin-top: 28px;
+}
+
 .section,
 .quiz-shell,
 .result-shell,
@@ -483,6 +491,7 @@ button {
 .method-card h3,
 .result-card h2,
 .result-card h3,
+.facts-grid h3,
 .meter-card h3,
 .question-card h3,
 .empty-card h2 {
@@ -640,7 +649,7 @@ button {
   transition: 140ms ease;
 }
 
-.choice-option input:checked + span {
+.choice-option input:checked+span {
   background: linear-gradient(145deg, rgba(32, 77, 89, 0.16), rgba(197, 90, 52, 0.12));
   border-color: rgba(165, 68, 34, 0.36);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.46);
@@ -657,6 +666,7 @@ button {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: space-between;
+  margin-top: 18px;
 }
 
 .page-pills {
@@ -703,7 +713,6 @@ button {
   color: var(--ink-soft);
   font-size: 1.08rem;
   margin: 0;
-  max-width: 62ch;
 }
 
 .result-stats {
@@ -824,6 +833,7 @@ button {
   display: grid;
   gap: 10px;
   margin: 0;
+  margin-top: 12px;
   padding-left: 1.2rem;
 }
 
@@ -865,6 +875,7 @@ button {
 }
 
 @media (max-width: 900px) {
+
   .hero__grid,
   .result-grid,
   .method-grid,

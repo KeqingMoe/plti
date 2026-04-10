@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -7,18 +7,17 @@ interface Props {
   path?: string;
 }
 
-const { title, description, path = '/' } = Astro.props;
+const { title, description, path = "/" } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const year = new Date().getFullYear();
 
 const navigation = [
-  { href: `${base}`, label: '首页' },
-  { href: `${base}quiz`, label: '开始测试' },
-  { href: `${base}methodology`, label: '方法论' }
+  { href: `${base}`, label: "首页" },
+  { href: `${base}quiz`, label: "开始测试" },
 ];
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
@@ -41,18 +40,10 @@ const navigation = [
         <a class="brand" href={base}>
           <span class="brand__mark">PLTI</span>
           <span class="brand__text">
-            <strong>Programming Language Type Indicator</strong>
-            <small>把语言偏好做成一份像样的静态测试</small>
+            <strong>编程语言人格测试</strong>
+            <small>把语言偏好做成一份 MBTI 风格的测试</small>
           </span>
         </a>
-
-        <nav class="site-nav" aria-label="主导航">
-          {navigation.map((item) => (
-            <a class:list={["site-nav__link", path === item.href && 'is-active']} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
       </header>
 
       <main class="main-shell">
@@ -60,10 +51,12 @@ const navigation = [
       </main>
 
       <footer class="site-footer">
-        <p>PLTI 是一份受编程语言理论与现实工程偏好启发的趣味量表，不是经过心理测量学验证的正式测试。</p>
-        <p>{year} · 纯静态 Astro 站点，可直接部署到任意静态托管平台。</p>
+        <p>
+          PLTI
+          是一份受编程语言理论与现实工程偏好启发的趣味量表，不是经过心理测量学验证的正式测试。
+        </p>
+        <p>© 2026 時雨てる · <a href="https://github.com/KeqingMoe/plti">GitHub Repo</a></p>
       </footer>
     </div>
   </body>
 </html>
-
