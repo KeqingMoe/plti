@@ -5,7 +5,6 @@ export const languages: LanguageProfile[] = [
     id: 'python',
     name: 'Python',
     personaTitle: '脚本小子',
-    group: 'industrial',
     vector: {
       'type-discipline': -2,
       abstraction: -1,
@@ -25,7 +24,6 @@ export const languages: LanguageProfile[] = [
     id: 'javascript',
     name: 'JavaScript',
     personaTitle: '相等性抽象派',
-    group: 'industrial',
     vector: {
       'type-discipline': -2,
       abstraction: 0,
@@ -45,7 +43,6 @@ export const languages: LanguageProfile[] = [
     id: 'typescript',
     name: 'TypeScript',
     personaTitle: '类型体操运动员',
-    group: 'exploratory',
     vector: {
       'type-discipline': 1,
       abstraction: 0,
@@ -65,7 +62,6 @@ export const languages: LanguageProfile[] = [
     id: 'go',
     name: 'Go',
     personaTitle: '加法跳级生',
-    group: 'industrial',
     vector: {
       'type-discipline': 1,
       abstraction: -2,
@@ -85,7 +81,6 @@ export const languages: LanguageProfile[] = [
     id: 'java',
     name: 'Java',
     personaTitle: '抽象工厂单例代理建造者',
-    group: 'industrial',
     vector: {
       'type-discipline': 2,
       abstraction: -1,
@@ -105,7 +100,6 @@ export const languages: LanguageProfile[] = [
     id: 'csharp',
     name: 'C#',
     personaTitle: '语法糖批发商',
-    group: 'industrial',
     vector: {
       'type-discipline': 2,
       abstraction: 0,
@@ -125,7 +119,6 @@ export const languages: LanguageProfile[] = [
     id: 'kotlin',
     name: 'Kotlin',
     personaTitle: '空安全洁癖症患者',
-    group: 'industrial',
     vector: {
       'type-discipline': 2,
       abstraction: 1,
@@ -145,7 +138,6 @@ export const languages: LanguageProfile[] = [
     id: 'koka',
     name: 'Koka',
     personaTitle: '效应会计师',
-    group: 'exploratory',
     vector: {
       'type-discipline': 2,
       abstraction: 2,
@@ -165,7 +157,6 @@ export const languages: LanguageProfile[] = [
     id: 'c',
     name: 'C',
     personaTitle: '指针仙人',
-    group: 'industrial',
     vector: {
       'type-discipline': 1,
       abstraction: -2,
@@ -185,7 +176,6 @@ export const languages: LanguageProfile[] = [
     id: 'cpp',
     name: 'C++',
     personaTitle: '语言律师',
-    group: 'industrial',
     vector: {
       'type-discipline': 1,
       abstraction: 1,
@@ -205,7 +195,6 @@ export const languages: LanguageProfile[] = [
     id: 'rust',
     name: 'Rust',
     personaTitle: '借用检查官',
-    group: 'exploratory',
     vector: {
       'type-discipline': 2,
       abstraction: 1,
@@ -225,7 +214,6 @@ export const languages: LanguageProfile[] = [
     id: 'zig',
     name: 'Zig',
     personaTitle: '编译期 Girard',
-    group: 'industrial',
     vector: {
       'type-discipline': -1,
       abstraction: -2,
@@ -245,7 +233,6 @@ export const languages: LanguageProfile[] = [
     id: 'elixir',
     name: 'Elixir',
     personaTitle: '超级马里奥',
-    group: 'exploratory',
     vector: {
       'type-discipline': -1,
       abstraction: 1,
@@ -265,7 +252,6 @@ export const languages: LanguageProfile[] = [
     id: 'scala',
     name: 'Scala',
     personaTitle: '范式缝合怪',
-    group: 'exploratory',
     vector: {
       'type-discipline': 2,
       abstraction: 2,
@@ -285,7 +271,6 @@ export const languages: LanguageProfile[] = [
     id: 'ocaml',
     name: 'OCaml',
     personaTitle: '编译器学院派',
-    group: 'exploratory',
     vector: {
       'type-discipline': 2,
       abstraction: 1,
@@ -305,7 +290,6 @@ export const languages: LanguageProfile[] = [
     id: 'haskell',
     name: 'Haskell',
     personaTitle: '范畴论学家',
-    group: 'exploratory',
     vector: {
       'type-discipline': 2,
       abstraction: 2,

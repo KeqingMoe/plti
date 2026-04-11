@@ -6,12 +6,7 @@ import { languages } from "../data/languages.ts";
 
 const base = import.meta.env.BASE_URL;
 const title = "PLTI | 编程语言人格测试";
-const industrialLanguages = languages.filter(
-  (language) => language.group === "industrial",
-);
-const exploratoryLanguages = languages.filter(
-  (language) => language.group === "exploratory",
-);
+
 ---
 
 <BaseLayout title={title} description={siteCopy.heroBlurb} path={base}>
@@ -82,34 +77,12 @@ const exploratoryLanguages = languages.filter(
         </p>
       </div>
 
-      <div class="language-grid">
-        <article class="soft-card language-card">
-          <h3>主流 / 工业结果池</h3>
-          <p>
-            这些结果更容易和大多数开发者的真实经验对上号，也让测试结果不会离开现实世界太远。
-          </p>
-          <div class="language-cloud" style="margin-top: 16px;">
-            {
-              industrialLanguages.map((language) => (
-                <span class="tag">{language.name}</span>
-              ))
-            }
-          </div>
-        </article>
-
-        <article class="soft-card language-card">
-          <h3>PL / 探索结果池</h3>
-          <p>
-            这些语言让结果空间能容纳不同范式与设计哲学，而不是无论怎么答都回到同一套工业共识。
-          </p>
-          <div class="language-cloud" style="margin-top: 16px;">
-            {
-              exploratoryLanguages.map((language) => (
-                <span class="tag">{language.name}</span>
-              ))
-            }
-          </div>
-        </article>
+      <div class="language-cloud" style="margin-top: 16px;">
+        {
+          languages.map((language) => (
+            <span class="tag">{language.name}</span>
+          ))
+        }
       </div>
     </section>
   </section>

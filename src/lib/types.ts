@@ -38,7 +38,6 @@ export type LanguageProfile = {
   id: string;
   name: string;
   personaTitle: string;
-  group: 'industrial' | 'exploratory';
   vector: Record<DimensionId, -2 | -1 | 0 | 1 | 2>;
   summary: string;
   whyFit: string[];
