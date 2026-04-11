@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DimensionSection from "../components/home/DimensionSection.astro";
+import HomeHero from "../components/home/HomeHero.astro";
+import HowItWorksSection from "../components/home/HowItWorksSection.astro";
+import LanguagePoolSection from "../components/home/LanguagePoolSection.astro";
 import { siteCopy } from "../data/copy.ts";
 import { dimensions } from "../data/dimensions.ts";
 import { languages } from "../data/languages.ts";
@@ -10,80 +14,13 @@ const title = "PLTI | 编程语言人格测试";
 ---
 
 <BaseLayout title={title} description={siteCopy.heroBlurb} path={base}>
-  <section class="hero">
-    <p class="hero__eyebrow">{siteCopy.heroEyebrow}</p>
-    <h1 class="hero__title">{siteCopy.heroTitle}</h1>
-    <p class="hero__lede">{siteCopy.heroBlurb}</p>
-
-    <div class="hero__content">
-      <div class="stat-grid">
-        <article class="metric-card">
-          <small>答题时间</small>
-          <strong>8-12 分钟</strong>
-          <p>分 6 页完成，每页 10 题，适合完整做完后直接分享结果。</p>
-        </article>
-
-        <article class="metric-card">
-          <small>维度画像</small>
-          <strong>6 维</strong>
-          <p>类型、抽象、效应、控制、工程、范式探索各自独立计分。</p>
-        </article>
-
-        <article class="metric-card">
-          <small>结果形式</small>
-          <strong>1 + 2</strong>
-          <p>主推 1 门语言，再给你 2 个备选结果和完整维度图谱。</p>
-        </article>
-      </div>
-    </div>
-
-    <a class="start-test" href={`${base}quiz`}>开始测试</a>
-
-    <section class="section">
-      <div class="section-heading">
-        <p class="section-kicker">工作原理</p>
-        <h2 class="section-title">简单直接的语言倾向测试</h2>
-        <p class="section-lede">
-          每题为两种倾向的对立选择，没有中立选项。通过 60
-          道题评估你在六个维度上的倾向，匹配最接近的编程语言画像。
-        </p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <p class="section-kicker">维度说明</p>
-        <h2 class="section-title">六条轴线，决定你的语言倾向。</h2>
-      </div>
-
-      <div class="dimension-grid">
-        {
-          dimensions.map((dimension) => (
-            <article class="soft-card dimension-card">
-              <h3>{dimension.name}</h3>
-              <p>{dimension.summary}</p>
-            </article>
-          ))
-        }
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <p class="section-kicker">Language Pool</p>
-        <h2 class="section-title">语言选择原则</h2>
-        <p class="section-lede">
-          语言池覆盖了脚本语言、平台语言、系统语言和探索型语言，兼顾主流使用和范式多样性。
-        </p>
-      </div>
-
-      <div class="language-cloud" style="margin-top: 16px;">
-        {
-          languages.map((language) => (
-            <span class="tag">{language.name}</span>
-          ))
-        }
-      </div>
-    </section>
-  </section>
+  <HomeHero
+    base={base}
+    heroEyebrow={siteCopy.heroEyebrow}
+    heroTitle={siteCopy.heroTitle}
+    heroBlurb={siteCopy.heroBlurb}
+  />
+  <HowItWorksSection />
+  <DimensionSection dimensions={dimensions} />
+  <LanguagePoolSection languages={languages} />
 </BaseLayout>

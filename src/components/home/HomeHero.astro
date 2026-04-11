@@ -1,0 +1,22 @@
+---
+import HeroMetrics from './HeroMetrics.astro';
+
+interface Props {
+  base: string;
+  heroEyebrow: string;
+  heroTitle: string;
+  heroBlurb: string;
+}
+
+const { base, heroEyebrow, heroTitle, heroBlurb } = Astro.props;
+---
+
+<section class="hero">
+  <p class="hero__eyebrow">{heroEyebrow}</p>
+  <h1 class="hero__title">{heroTitle}</h1>
+  <p class="hero__lede">{heroBlurb}</p>
+
+  <HeroMetrics />
+
+  <a class="start-test" href={`${base}quiz`}>开始测试</a>
+</section>

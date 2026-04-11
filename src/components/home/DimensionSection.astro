@@ -1,0 +1,27 @@
+---
+import type { DimensionDefinition } from '../../lib/types.ts';
+
+interface Props {
+  dimensions: DimensionDefinition[];
+}
+
+const { dimensions } = Astro.props;
+---
+
+<section class="section">
+  <div class="section-heading">
+    <p class="section-kicker">维度说明</p>
+    <h2 class="section-title">六条轴线，决定你的语言倾向。</h2>
+  </div>
+
+  <div class="dimension-grid">
+    {
+      dimensions.map((dimension) => (
+        <article class="soft-card dimension-card">
+          <h3>{dimension.name}</h3>
+          <p>{dimension.summary}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

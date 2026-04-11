@@ -1,0 +1,29 @@
+---
+interface LanguageItem {
+  name: string;
+}
+
+interface Props {
+  languages: LanguageItem[];
+}
+
+const { languages } = Astro.props;
+---
+
+<section class="section">
+  <div class="section-heading">
+    <p class="section-kicker">Language Pool</p>
+    <h2 class="section-title">语言选择原则</h2>
+    <p class="section-lede">
+      语言池覆盖了脚本语言、平台语言、系统语言和探索型语言，兼顾主流使用和范式多样性。
+    </p>
+  </div>
+
+  <div class="language-cloud" style="margin-top: 16px;">
+    {
+      languages.map((language) => (
+        <span class="tag">{language.name}</span>
+      ))
+    }
+  </div>
+</section>
