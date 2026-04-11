@@ -282,16 +282,30 @@ button {
 
 .start-test {
   display: block;
-  font-size: 36px;
+  font-size: 1.5rem;
   font-family: var(--display-font);
-  margin-top: 24px;
-  height: 48px;
+  font-weight: 700;
+  margin-top: 32px;
+  padding: 18px 48px;
   text-align: center;
-  transition: font-size ease-in-out 0.1s;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: white;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(197, 90, 52, 0.35), 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .start-test:hover {
-  font-size: 40px;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(197, 90, 52, 0.45), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.start-test:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .stat-grid {
