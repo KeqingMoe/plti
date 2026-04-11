@@ -262,3 +262,268 @@ async function copyShareLink(event: Event) {
     </section>
   </section>
 </template>
+
+<style>
+.share-note {
+  border-radius: var(--radius-md);
+  color: var(--ink-soft);
+  padding: 14px 16px;
+}
+
+.result-hero {
+  display: grid;
+  gap: 18px;
+}
+
+.result-grid,
+.facts-grid,
+.facts-and-alt,
+.alt-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.result-grid,
+.facts-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.result-card h2,
+.result-card h3,
+.facts-grid h3,
+.meter-card h3,
+.empty-card h2 {
+  font-family: var(--display-font);
+  font-size: 1.45rem;
+  margin: 0;
+}
+
+.result-card p,
+.empty-card p,
+.soft-card p,
+.meter-card p {
+  color: var(--ink-soft);
+  margin: 10px 0 0;
+}
+
+.result-card--hero {
+  background: linear-gradient(145deg, rgba(255, 250, 243, 0.94), rgba(241, 228, 208, 0.9));
+  display: grid;
+  gap: 18px;
+}
+
+.result-card--hero header {
+  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.result-summary {
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+  margin: 0;
+}
+
+.share-box {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.share-box input {
+  background: rgba(255, 250, 243, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  flex: 1;
+  min-width: 0;
+  padding: 12px 16px;
+}
+
+.alt-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.alt-card {
+  background: rgba(255, 250, 243, 0.8);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.alt-card h3 {
+  margin-bottom: 8px;
+}
+
+.alt-card p {
+  margin: 0;
+}
+
+.meter-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.meter-card {
+  display: grid;
+  gap: 12px;
+}
+
+.meter-head {
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.meter-track {
+  background: linear-gradient(90deg, rgba(32, 77, 89, 0.08) 0%, rgba(255, 250, 243, 0.76) 50%, rgba(197, 90, 52, 0.08) 100%);
+  border-radius: 999px;
+  height: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.meter-track::after {
+  background: rgba(76, 67, 61, 0.22);
+  content: '';
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.meter-fill-left,
+.meter-fill-right {
+  border-radius: 999px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.meter-fill-left {
+  background: linear-gradient(90deg, rgba(32, 77, 89, 0.78), rgba(32, 77, 89, 0.3));
+  right: 50%;
+}
+
+.meter-fill-right {
+  background: linear-gradient(90deg, rgba(197, 90, 52, 0.38), rgba(197, 90, 52, 0.9));
+  left: 50%;
+}
+
+.meter-labels {
+  color: var(--muted);
+  display: flex;
+  font-size: 0.9rem;
+  justify-content: space-between;
+}
+
+.quote-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  margin-top: 12px;
+  padding-left: 1.2rem;
+}
+
+.quote-list li {
+  color: var(--ink-soft);
+}
+
+.empty-card {
+  margin: 40px auto 0;
+  max-width: 720px;
+}
+
+.all-languages {
+  margin-top: 48px;
+}
+
+.all-languages h2 {
+  margin: 4px 0 24px;
+  font-family: var(--display-font);
+  font-size: clamp(1.3rem, 2.8vw, 1.6rem);
+  font-weight: 600;
+}
+
+.language-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.language-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.language-bar-label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.language-bar-rank {
+  font-size: 0.8rem;
+  color: var(--muted);
+  min-width: 28px;
+}
+
+.language-bar-name {
+  font-weight: 600;
+  flex: 1;
+}
+
+.language-bar-fit {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.language-bar-track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.language-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  transition: width 0.6s ease;
+}
+
+@media (max-width: 900px) {
+  .result-grid,
+  .facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .alt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .share-box {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .language-bar-list {
+    gap: 12px;
+  }
+
+  .language-bar-label {
+    flex-wrap: wrap;
+  }
+}
+</style>

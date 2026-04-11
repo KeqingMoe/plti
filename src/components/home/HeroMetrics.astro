@@ -19,3 +19,38 @@
     </article>
   </div>
 </div>
+
+<style is:global>
+  .stat-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 18px;
+  }
+
+  .metric-card small {
+    color: var(--muted);
+    display: block;
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .metric-card strong {
+    display: block;
+    font-family: var(--display-font);
+    font-size: 2rem;
+  }
+
+  .metric-card p {
+    color: var(--ink-soft);
+    margin: 10px 0 0;
+  }
+
+  @media (max-width: 900px) {
+    .stat-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

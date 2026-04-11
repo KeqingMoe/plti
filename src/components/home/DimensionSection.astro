@@ -25,3 +25,29 @@ const { dimensions } = Astro.props;
     }
   </div>
 </section>
+
+<style is:global>
+  .dimension-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 18px;
+  }
+
+  .dimension-card h3 {
+    font-family: var(--display-font);
+    font-size: 1.45rem;
+    margin: 0;
+  }
+
+  .dimension-card p {
+    color: var(--ink-soft);
+    margin: 8px 0 0;
+  }
+
+  @media (max-width: 900px) {
+    .dimension-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
