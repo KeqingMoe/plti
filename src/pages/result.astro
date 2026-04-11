@@ -50,6 +50,12 @@ const base = import.meta.env.BASE_URL;
           <div class="facts-grid" data-facts-grid></div>
         </div>
       </div>
+
+      <section class="all-languages" data-all-languages>
+        <p class="overline">All Candidates</p>
+        <h2>所有候选语言匹配度</h2>
+        <div class="language-bar-list" data-language-bar-list></div>
+      </section>
     </section>
   </section>
 
@@ -152,6 +158,26 @@ const base = import.meta.env.BASE_URL;
 
       if (shareInput instanceof HTMLInputElement) {
         shareInput.value = canonicalUrl.toString();
+      }
+
+      const languageBarList = document.querySelector('[data-language-bar-list]');
+      if (languageBarList instanceof HTMLElement) {
+        languageBarList.innerHTML = snapshot.ranking.map((entry, index) => {
+          const language = getLanguageProfile(entry.languageId);
+          if (!language) return '';
+          return `
+            <div class="language-bar-row">
+              <div class="language-bar-label">
+                <span class="language-bar-rank">#${index + 1}</span>
+                <span class="language-bar-name">${language.name}</span>
+                <span class="language-bar-fit">${entry.fit}%</span>
+              </div>
+              <div class="language-bar-track">
+                <div class="language-bar-fill" style="width:${entry.fit}%;"></div>
+              </div>
+            </div>
+          `;
+        }).join('');
       }
 
       if (altGrid instanceof HTMLElement) {

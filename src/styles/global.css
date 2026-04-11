@@ -949,4 +949,75 @@ section {
     align-items: stretch;
     flex-direction: column;
   }
+
+  .language-bar-list {
+    gap: 12px;
+  }
+
+  .language-bar-label {
+    flex-wrap: wrap;
+  }
+}
+
+.all-languages {
+  margin-top: 48px;
+}
+
+.all-languages h2 {
+  margin: 4px 0 24px;
+  font-family: var(--display-font);
+  font-size: clamp(1.3rem, 2.8vw, 1.6rem);
+  font-weight: 600;
+}
+
+.language-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.language-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.language-bar-label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.language-bar-rank {
+  font-size: 0.8rem;
+  color: var(--muted);
+  min-width: 28px;
+}
+
+.language-bar-name {
+  font-weight: 600;
+  flex: 1;
+}
+
+.language-bar-fit {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.language-bar-track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.language-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  transition: width 0.6s ease;
 }
